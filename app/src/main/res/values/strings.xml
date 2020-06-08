@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Junkirk</string>
+    <string name="heroes_name">Nama Pahlawan</string>
+    <string name="from">Asal</string>
+    <string name="list">List</string>
+    <string name="description">Deskripsi</string>
+    <string name="favorite">Favorite</string>
+    <string name="share">Share</string>
+    <string name="photo">Photo</string>
+    <string name="grid">Grid</string>
+    <string name="with_cardview">With CardView</string>
+    <string name="member_name">Member Name</string>
+    <string name="visit">Visit</string>
+    <string name="kritk_saran">Kritik dan Saran</string>
+    <string name="join">Join Us</string>
+    <string name="pesen_update">Visit Junkirk blog to check an update!</string>
+</resources>
