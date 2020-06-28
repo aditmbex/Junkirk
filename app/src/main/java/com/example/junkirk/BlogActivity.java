@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -16,6 +17,8 @@ public class BlogActivity extends AppCompatActivity {
     private RecyclerView rvHeroes;
     private RecyclerView rvMembers;
     private ArrayList<Members> list = new ArrayList<>();
+    private String suggest_url,join_url;
+    private String KEY_URL = "URL";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,11 +61,19 @@ public class BlogActivity extends AppCompatActivity {
     }
 
     private void showRecyclerList(){
-        Toast.makeText(BlogActivity.this, "Masih dalam pengembangan", Toast.LENGTH_LONG).show();
+//        Toast.makeText(BlogActivity.this, "Kritik dan Saran", Toast.LENGTH_LONG).show();
+        suggest_url = "https://docs.google.com/forms/d/e/1FAIpQLSfMdAPap-51srb9gbVPrzv-V1oFLV4HQNl3QGv3ds3mQ6A3OQ/viewform?usp=sf_link";
+        Intent intent = new Intent(BlogActivity.this, WebViewActivity.class);
+        intent.putExtra(KEY_URL,suggest_url);
+        startActivity(intent);
     }
 
     private void showRecyclerGrid(){
-        Toast.makeText(BlogActivity.this, "Masih dalam pengembangan", Toast.LENGTH_LONG).show();
+//        Toast.makeText(BlogActivity.this, "Join Us", Toast.LENGTH_LONG).show();
+        join_url = "https://docs.google.com/forms/d/e/1FAIpQLScikuAtRVRsAHX3YL5KbMYftQqBdDYnP2wWzlprX_kiaZQorQ/viewform?usp=sf_link";
+        Intent intent = new Intent(BlogActivity.this, WebViewActivity.class);
+        intent.putExtra(KEY_URL,join_url);
+        startActivity(intent);
     }
 
     private void showRecyclerCardView(){
