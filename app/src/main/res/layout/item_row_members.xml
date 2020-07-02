@@ -1,40 +1,136 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:layout_marginTop="15dp"
-    android:layout_marginLeft="10dp"
-    android:layout_marginRight="10dp"
-    android:padding="@dimen/activity_vertical_margin">
+    android:background="#5D44507B">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/img_item_photo"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
-        android:layout_marginEnd="@dimen/activity_horizontal_margin"
-        tools:src="@android:color/darker_gray" />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_toEndOf="@id/img_item_photo"
-        android:orientation="vertical">
-        <TextView
-            android:id="@+id/tv_item_name"
+    <androidx.cardview.widget.CardView
+        android:layout_width="0dp"
+        android:layout_height="93dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="10dp"
+        android:elevation="4dp"
+        app:cardBackgroundColor="#6D96E7"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            tools:text="@string/member_name" />
-        <TextView
-            android:id="@+id/tv_item_from"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ellipsize="end"
-            android:maxLines="2"
-            tools:text="@string/from" />
-    </LinearLayout>
-</RelativeLayout>
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="16dp">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/img_item_photo"
+                    android:layout_width="61dp"
+                    android:layout_height="61dp"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    tools:src="@android:color/darker_gray" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="3dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvjudulblog"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/alegreya_sans_sc"
+                    android:text="Salvatore Ngomyang"
+                    android:textColor="#000000"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:lineHeight="14sp" />
+
+                <TextView
+                    android:id="@+id/tvpenulis"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto"
+                    android:text="Claudius Hans Salvatore"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="8sp" />
+
+                <TextView
+                    android:id="@+id/tvjudultulisan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:text="Menentukan Sebuah Pilihan"
+                    android:textColor="@android:color/background_dark" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnvisit"
+                        android:layout_width="60dp"
+                        android:layout_height="20dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/ic_rectangle_2"
+                        android:fontFamily="@font/alegreya_sans_sc"
+                        android:text="VISIT"
+                        android:textColor="#FFFFFF" />
+
+                    <View
+                        android:id="@+id/view"
+                        android:layout_width="23dp"
+                        android:layout_height="1dp" />
+
+                    <Button
+                        android:id="@+id/btnshare"
+                        android:layout_width="60dp"
+                        android:layout_height="20dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/ic_rectangle_2"
+                        android:fontFamily="@font/alegreya_sans_sc"
+                        android:text="SHARE"
+                        android:textColor="#FFFFFF" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvtanggalterbit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginEnd="7dp"
+                    android:layout_marginRight="7dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/roboto"
+                    android:text="26 Juni 2020"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="8sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -29,7 +29,7 @@ public class CardViewMemberAdapter extends RecyclerView.Adapter<CardViewMemberAd
     @NonNull
     @Override
     public CardViewMemberAdapter.CardViewViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_cardview_member, viewGroup, false);
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_row_members, viewGroup, false);
         return new CardViewMemberAdapter.CardViewViewHolder(view);
     }
 
@@ -43,12 +43,12 @@ public class CardViewMemberAdapter extends RecyclerView.Adapter<CardViewMemberAd
                 .into(holder.imgPhoto);
         holder.tvName.setText(members.getName());
         holder.tvFrom.setText(members.getFrom());
-        holder.tvUrl.setText(members.getUrl());
-
+        //holder.tvUrl.setText(members.getUrl());
+        final String alamat_url = listMember.get(holder.getAdapterPosition()).getUrl();
         holder.btnFavorite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String alamat_url = listMember.get(holder.getAdapterPosition()).getUrl();
+
                 Toast.makeText(holder.itemView.getContext(), "Visit " +
                         listMember.get(holder.getAdapterPosition()).getName(), Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(holder.itemView.getContext(),WebViewActivity.class);
@@ -60,8 +60,13 @@ public class CardViewMemberAdapter extends RecyclerView.Adapter<CardViewMemberAd
         holder.btnShare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(holder.itemView.getContext(), "Rencananya ini tombol share utk " +
-                        listMember.get(holder.getAdapterPosition()).getName(), Toast.LENGTH_SHORT).show();
+
+                 Intent intent = new Intent(Intent.ACTION_SEND);
+                 intent.setType("text/plain");
+                 intent.putExtra(Intent.EXTRA_TEXT,"Eh ada blog bagus lo... baca yuk "+ alamat_url);
+               holder.itemView.getContext().startActivity(Intent.createChooser(intent,"Jangan disimpan sendiri share yuk..."));
+//                Toast.makeText(holder.itemView.getContext(), "Rencananya ini tombol share utk " +
+//                        listMember.get(holder.getAdapterPosition()).getName(), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -81,16 +86,18 @@ public class CardViewMemberAdapter extends RecyclerView.Adapter<CardViewMemberAd
 
     class CardViewViewHolder extends RecyclerView.ViewHolder {
         ImageView imgPhoto;
-        TextView tvName, tvFrom, tvUrl;
-        Button btnFavorite, btnShare;
+        TextView tvName, tvFrom,tvUrl,tvjudultulisan,tvtanggal;
+        Button btnFavorite,btnShare;
         CardViewViewHolder(View itemView) {
             super(itemView);
             imgPhoto = itemView.findViewById(R.id.img_item_photo);
-            tvName = itemView.findViewById(R.id.tv_item_name);
-            tvFrom = itemView.findViewById(R.id.tv_item_from);
+            tvName = itemView.findViewById(R.id.tvjudulblog);
+            tvFrom = itemView.findViewById(R.id.tvpenulis);
             tvUrl = itemView.findViewById(R.id.tv_member_url);
-            btnFavorite = itemView.findViewById(R.id.btn_set_favorite);
-            btnShare = itemView.findViewById(R.id.btn_set_share);
+            btnFavorite = itemView.findViewById(R.id.btnvisit);
+            btnShare = itemView.findViewById(R.id.btnshare);
+            tvjudultulisan= itemView.findViewById(R.id.tvjudultulisan);
+            tvtanggal= itemView.findViewById(R.id.tvtanggalterbit);
         }
     }
 }
