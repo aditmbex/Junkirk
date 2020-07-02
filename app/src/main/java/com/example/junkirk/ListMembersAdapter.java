@@ -3,6 +3,7 @@ package com.example.junkirk;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -61,14 +62,17 @@ public class ListMembersAdapter extends RecyclerView.Adapter<ListMembersAdapter.
 
     class ListViewHolder extends RecyclerView.ViewHolder {
         ImageView imgPhoto;
-        TextView tvName, tvFrom,tvUrl;
+        TextView tvName, tvFrom,tvUrl,tvjudultulisan,tvtanggal;
+        Button visit,share;
 
         ListViewHolder(View itemView){
             super(itemView);
             imgPhoto = itemView.findViewById(R.id.img_item_photo);
-            tvName = itemView.findViewById(R.id.tv_item_name);
-            tvFrom = itemView.findViewById(R.id.tv_item_from);
-            tvUrl =  itemView.findViewById(R.id.tv_member_url);
+            tvName = itemView.findViewById(R.id.tvjudulblog);
+            tvFrom = itemView.findViewById(R.id.tvpenulis);
+//            tvUrl =  itemView.findViewById(R.id.tv_member_url);
+            tvjudultulisan= itemView.findViewById(R.id.tvjudultulisan);
+            tvtanggal= itemView.findViewById(R.id.tvtanggalterbit);
         }
     }
 
